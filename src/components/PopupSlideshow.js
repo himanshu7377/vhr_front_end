@@ -1,3 +1,5 @@
+// src/components/PopupSlideshow.js
+
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -10,15 +12,21 @@ const PopupSlideshow = ({ images, selectedIndex, onClose }) => {
 
   return (
     <div className="popup-slideshow">
-      <div className="popup-slideshow-close" onClick={onClose}>
-        &times;
+      <div className="popup-content">
+        <div className="popup-image-gallery">
+          <ImageGallery
+            items={imageList}
+            startIndex={selectedIndex}
+            showFullscreenButton={false}
+            showPlayButton={false}
+          />
+        </div>
+
+        {/* Close Button */}
+        <span className="close-btn" onClick={onClose}>
+          &times;
+        </span>
       </div>
-      <ImageGallery
-        items={imageList}
-        startIndex={selectedIndex}
-        showFullscreenButton={false}
-        showPlayButton={false}
-      />
     </div>
   );
 };

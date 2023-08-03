@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PopupSlideshow from './PopupSlideshow';
+import PhotoCard from './PhotoCard';
 
 const PhotoGallery = () => {
   const [photos, setPhotos] = useState([]);
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const photosPerPage = 4; // Set the number of photos per page
 
   useEffect(() => {
     fetchPhotos(currentPage);
@@ -45,20 +47,12 @@ const PhotoGallery = () => {
     }
   };
 
-  console.log(photos);
-
   return (
     <div className="photo-gallery">
       <h1>Photo Gallery</h1>
       <div className="photo-list">
         {photos.map((photo, index) => (
-          <div key={photo._id} className="photo-item">
-            <img
-              src={photo.imageUrl}
-              alt={`Photo ${index + 1}`}
-              onClick={() => openPopup(index)}
-            />
-          </div>
+          <PhotoCard key={photo._id} photo={photo} onClick={() => openPopup(index)} />
         ))}
       </div>
       {selectedPhotoIndex !== null && (
