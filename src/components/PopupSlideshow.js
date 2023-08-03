@@ -1,4 +1,4 @@
-// src/components/PopupSlideshow.js
+
 
 import React from 'react';
 import ImageGallery from 'react-image-gallery';
@@ -22,7 +22,7 @@ const PopupSlideshow = ({ images, selectedIndex, onClose }) => {
           />
         </div>
 
-        {/* Close Button */}
+      
         <span className="close-btn" onClick={onClose}>
           &times;
         </span>

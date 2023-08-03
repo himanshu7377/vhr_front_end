@@ -1,4 +1,4 @@
-// src/components/PhotoCard.js
+
 
 import React from 'react';
 

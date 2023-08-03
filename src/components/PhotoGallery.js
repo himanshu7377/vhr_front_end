@@ -1,4 +1,3 @@
-// src/components/PhotoGallery.js
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -10,7 +9,7 @@ const PhotoGallery = () => {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const photosPerPage = 4; // Set the number of photos per page
+  
 
   useEffect(() => {
     fetchPhotos(currentPage);
